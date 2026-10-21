@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>暧昧模拟器</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <!-- 欢迎页 -->
+  <section id="page-welcome" class="page active">
+    <div class="card">
+      <h1 class="title">暧昧模拟器</h1>
+      <p class="subtitle">十道日常对话，测测你在关系里的样子。</p>
+
+      <div class="field">
+        <label class="label">你是</label>
+        <div class="gender-group" id="genderGroup">
+          <button class="gender-btn" data-gender="男">男</button>
+          <button class="gender-btn" data-gender="女">女</button>
+          <button class="gender-btn" data-gender="其他">其他</button>
+          <button class="gender-btn" data-gender="不透露">不透露</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label" for="nickname">怎么称呼你</label>
+        <input id="nickname" class="input" type="text" maxlength="12" placeholder="1–12 字，不填就叫你「你」">
+      </div>
+
+      <div class="welcome-actions">
+        <button id="btnStart" class="btn btn-primary">开始模拟</button>
+        <button id="btnContinue" class="btn btn-ghost hidden">继续上次</button>
+      </div>
+
+      <div id="historyBox" class="history-box hidden">
+        <div class="history-title">最近记录</div>
+        <ul id="historyList" class="history-list"></ul>
+        <button id="btnClear" class="btn btn-text">清除记录</button>
+      </div>
+
+      <p class="footnote">仅供娱乐 · 数据仅保存在本机</p>
+    </div>
+  </section>
+
+  <!-- 问卷页 -->
+  <section id="page-quiz" class="page">
+    <div class="card">
+      <div class="quiz-top">
+        <button id="btnPrev" class="btn btn-text">上一题</button>
+        <span id="progressText" class="progress-text">第 1 / 10 题</span>
+      </div>
+      <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+
+      <div id="questionArea" class="question-area">
+        <h2 id="questionTitle" class="question-title"></h2>
+        <div id="optionsList" class="options-list"></div>
+        <div id="responseArea" class="response-area hidden">
+          <p id="responseText" class="response-text"></p>
+          <button id="btnNext" class="btn btn-primary hidden">继续</button>
+          <div id="submitArea" class="submit-area hidden">
+            <button id="btnSubmit" class="btn btn-primary">确认提交</button>
+            <button id="btnBackEdit" class="btn btn-ghost">返回修改</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 结果页 -->
+  <section id="page-result" class="page">
+    <div class="card">
+      <p class="result-label">你的结局是</p>
+      <h2 id="resultName" class="result-name"></h2>
+      <p id="resultDesc" class="result-desc"></p>
+      <div id="resultTags" class="result-tags"></div>
+
+      <div class="review-box">
+        <button id="btnToggleReview" class="btn btn-text review-toggle">查看答题回顾 ▾</button>
+        <div id="reviewList" class="review-list hidden"></div>
+      </div>
+
+      <div class="result-actions">
+        <button id="btnRestart" class="btn btn-primary">再测一次</button>
+        <button id="btnHome" class="btn btn-ghost">回到首页</button>
+      </div>
+      <p class="footnote">仅供娱乐</p>
+    </div>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
